@@ -1,0 +1,209 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.slider-viewport {
+  width: 95%; /* Width of one image */
+  height:600px;
+  overflow: hidden; /* Hides the images that aren't active */
+  margin:0 auto;
+ 
+}
+/* Mobile Responsive Adjustments */
+
+@media(max-width:768px){
+  .menu{
+    visibility: hidden;
+  }
+  
+.beans{
+  gap: 20px;
+
+}
+.beans h2{
+  font-size: 15px;
+  padding: 0.6rem 0.3rem;
+}
+.beans h4{
+  font-weight: 100;
+  font-size: 10px;
+}
+}
+ 
+
+.slider-wrapper {
+  position: relative;
+  display:flex;
+  object-fit: cover;
+  width: 1000%;
+   /* 100% for each of the 10 images */
+  animation: slideShow 60s ease-in-out infinite; /* Total duration for all 10 slides */
+ 
+}
+.background{
+  position: absolute;
+  top: 0;
+  left: -50;
+  width: 95%;
+  height: 600px;
+  background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5));
+  z-index: 1;
+  overflow: hidden;
+  
+}
+
+.slider-wrapper img {
+  width: 10%; /* Each image takes up 1/10th of the 1000% wrapper */
+  height: 600px;
+  object-fit: cover;
+}
+@keyframes slideShow {
+  0%, 8%   { transform: translateX(0); }         /* Image 1 */
+  10%, 18% { transform: translateX(-10%); }      /* Image 2 */
+  20%, 28% { transform: translateX(-20%); }      /* Image 3 */
+  30%, 38% { transform: translateX(-30%); }      /* Image 4 */
+  40%, 48% { transform: translateX(-40%); }      /* Image 5 */
+  50%, 58% { transform: translateX(-50%); }      /* Image 6 */
+  60%, 68% { transform: translateX(-60%); }      /* Image 7 */
+  70%, 78% { transform: translateX(-70%); }      /* Image 8 */
+  80%, 88% { transform: translateX(-80%); }      /* Image 9 */
+  90%, 98% { transform: translateX(-90%); }      /* Image 10 */
+  100% ,0%  { transform: translateX(0); }         /* Back to start */
+}
+.menu{
+  position:fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  left: -50;
+  width: 80%;
+  height: 1fr;
+  z-index: 2;
+}
+
+.logo img{
+  width: 200px;
+  height: auto
+}
+.menu li{
+  margin-right: 1fr;
+  display: flex;
+  align-items:center ;
+  justify-content: space-around;
+  margin: 0 20px;
+}
+.menu .li li{
+  list-style: none;
+  display: inline-block;
+  
+}
+
+.menu .li li a{
+  text-decoration: none;
+  font-size: 20px;
+  padding: 1fr 2fr;
+
+  color: #fff;
+}
+
+.bean{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns:repeat(2,1fr); /* Two equal columns */
+  gap: 25px;
+  justify-content: center;
+  align-content: center;
+}
+.beans{
+  align-content: center;
+  text-align: center;
+  color: #fff;
+}
+.beans h2{
+  font-weight: 100;
+  padding: 0.6rem 0.3rem;
+}
+.beans h4{
+  font-weight: 100;
+}
+.section{
+  width: 95%; 
+  height: auto;
+  margin: 10px auto;
+ 
+}
+
+.section h1{
+  text-align: center;
+  font-size: 80px;
+  padding: 2rem 1rem;
+}
+.drinks{
+  width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,300px);
+  gap:10px;
+  justify-content: center;
+}
+.all-drinks{
+  display: flex;
+  align-items: center;
+  padding: 2rem 1rem;
+  justify-content: space-between;
+  box-shadow: 12px 12px 15px -5px rgba(232, 193, 193, 0.9);
+  border-radius: 15px;
+   animation: section-fade  linear both;
+  animation-timeline: view();
+  
+  /* 'cover' ensures the timeline tracks from entry-start to exit-end */
+  animation-range: cover; 
+}
+
+.desserts{
+  width: 100%;
+  height: auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit,400px);
+  gap:50px;
+  
+}
+.sweet{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 8px 15px 15px -5px rgba(0,0,0,0.5);
+  border-radius: 15px;
+   animation: section-fade linear both;
+  animation-timeline: view();
+  
+  /* 'cover' ensures the timeline tracks from entry-start to exit-end */
+  animation-range: cover; 
+}
+.sweet img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.text{
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  justify-content: space-between;
+}
+@keyframes section-fade {
+  entry 0% { opacity: 0; transform: scale(0); } /* Start invisible at bottom */
+  entry 50% { opacity: 0.5; transform: scale(0.5); } 
+  entry 100% { opacity: 1; transform: scale(1); }  /* Fully visible when entered */
+  exit 0% { opacity: 1; transform: scale(1); }
+  exit 50% { opacity: 0.5; transform: scale(0.5);}          /* Start fading at top edge */
+  exit 100% { opacity: 0; transform: scale(1); }       /* Invisible when exited */
+}
+
+
+
+
