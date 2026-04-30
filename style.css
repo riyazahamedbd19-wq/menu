@@ -87,11 +87,11 @@
   height: auto
 }
 .menu li{
-  margin-right: 1fr;
+
   display: flex;
   align-items:center ;
   justify-content: space-around;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 .menu .li li{
   list-style: none;
